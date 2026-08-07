@@ -1,0 +1,25 @@
+version: v1
+components:
+  - name: timetagger
+    docker:
+      image: ghcr.io/almarklein/timetagger
+    ports:
+      - 80
+    ingresses:
+      - host: timetagger
+        port: 80
+        path: /timetagger/app/
+    storage:
+      - name: timetagger-data
+        path: /root/_timetagger
+        size: 2Gi
+    env:
+      - name: TIMETAGGER_BIND
+        value: 0.0.0.0:80
+      - name: TIMETAGGER_DATADIR
+        value: /root/_timetagger
+      - name: TIMETAGGER_LOG_LEVEL
+        value: info
+      - name: TIMETAGGER_CREDENTIALS
+        config-ref: TIMETAGGER_CREDENTIALS
+
