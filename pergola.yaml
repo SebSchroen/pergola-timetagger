@@ -8,7 +8,6 @@ components:
     ingresses:
       - host: timetagger
         port: 80
-        path: /timetagger/login
     storage:
       - name: timetagger-data
         path: /root/_timetagger
