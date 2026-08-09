@@ -11,7 +11,7 @@ components:
     storage:
       - name: timetagger-data
         path: /root/_timetagger
-        size: 1Gi
+        size: 500Mi
     env:
       - name: TIMETAGGER_BIND
         value: 0.0.0.0:80
