@@ -68,7 +68,7 @@ Before releasing, you need to add your user credentials to the stage configurati
 Use a bcrypt password hashing tool to generate your hashed credentials (e.g. at [timetagger.app/cred](https://timetagger.app/cred)). Once you have your credentials format `username:hash`, run the following command to register them securely:
 
 ```bash
-pergola set config-data TIMETAGGER_CREDENTIALS="your_username:your_bcrypt_hash" -p pergola-timetagger -s dev
+pergola add config-data default --env TIMETAGGER_CREDENTIALS="your_username:your_bcrypt_hash" -p pergola-timetagger -s dev
 ```
 
 #### 2. Push Build
@@ -94,5 +94,5 @@ pergola push release -p pergola-timetagger -s dev --build main_b5 --config defau
 Once deployed, the ingress makes TimeTagger available at your public domain prefix on the path `/timetagger/app/`. You can view deployment status and public URLs with:
 
 ```bash
-pergola status timetagger -p pergola-timetagger -s dev
+pergola list components -p pergola-timetagger -s dev
 ```
